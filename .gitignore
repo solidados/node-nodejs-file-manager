@@ -1,3 +1,7 @@
+# IDE and OS auto generated files | folders
+.idea/
+.DS_Store
+
 # Logs
 logs
 *.log
