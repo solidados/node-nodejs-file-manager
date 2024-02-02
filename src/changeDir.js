@@ -3,19 +3,20 @@ import { existsSync } from "node:fs";
 import { getAbsolutePath } from "../lib/helpers/getPath.js";
 import notifiers from "../lib/helpers/notifiers.js";
 
-let HOME = homedir()
+let currentDir = homedir()
 
 export const changeDir = (dir, file) => {
   if (!file) {
     console.log('Invalid input')
-    return HOME
+    return currentDir
   } else {
-    HOME = getAbsolutePath(dir, file)
-    if (existsSync(dir)) {
-      notifiers.location(dir)
-      return HOME
+    currentDir = getAbsolutePath(dir, file)
+    if (existsSync(currentDir)) {
+      notifiers.location(currentDir);
+      return currentDir
     } else {
       notifiers.failed()
+      return dir
     }
   }
 }
