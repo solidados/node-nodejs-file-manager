@@ -2,6 +2,6 @@ import { homedir } from "node:os";
 
 const constants = {
   username: '',
-  homedir
+  homedir: homedir(),
 }
 export default constants

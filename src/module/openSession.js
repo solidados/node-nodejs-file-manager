@@ -1,10 +1,9 @@
-import { homedir } from "node:os";
 import { argv } from "node:process";
-import constants from "../../lib/constants/constants.js";
-import notifiers from "../../lib/helpers/notifiers.js";
+import constants from "../constants/constants.js";
+import notifiers from "../helpers/notifiers.js";
 
 const openSession = () => {
-  const HOME = homedir()
+  const HOME = constants.homedir;
   const args = argv.slice(2);
 
   (!args || !args.join('').startsWith('--username='))
