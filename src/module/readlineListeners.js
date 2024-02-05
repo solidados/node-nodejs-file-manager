@@ -6,7 +6,7 @@ import { colors } from "../helpers/messageColors.js";
 
 const readlineListener = () => {
   const originalPrompt = rl.getPrompt();
-  rl.setPrompt(`${colors.some}→ ${colors.reset}`)
+  // rl.setPrompt(`${colors.some}→ ${colors.reset}`)
 
   rl.on('line', async (data) => {
     const [command, ...args] = data.split(' ');
