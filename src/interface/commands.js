@@ -8,7 +8,8 @@ import rnService from '../commands/rn.service.js';
 import cpService from '../commands/cp.service.js';
 import mvService from '../commands/mv.service.js';
 import rmService from '../commands/rm.service.js';
-import getSysInfo from "../commands/os.service.js";
+import getSysInfo from '../commands/os.service.js';
+import hashService from '../commands/hash.service.js';
 
 let currentDir = getHomeDir();
 
@@ -23,6 +24,7 @@ const commands = {
   'mv': (filePath, file) => mvService(currentDir, filePath, file).catch(err => console.error(err.message)),
   'rm': (filePath, file) => rmService(currentDir, filePath, file).catch(err => console.error(err.message)),
   'os': (file) => getSysInfo(currentDir, file).catch(err => console.error(err.message)),
+  'hash': (file) => hashService(currentDir, file).catch(err => console.error(err.message)),
 }
 
 export default commands
