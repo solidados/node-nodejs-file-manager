@@ -1,24 +1,26 @@
 import { homedir as getHomeDir } from 'node:os';
 
-import cd from '../commands/cd.service.js';
-import ls from '../commands/ls.service.js';
-import cat from '../commands/cat.service.js';
-import add from '../commands/add.service.js';
-import rn from '../commands/rn.service.js';
-import cp from '../commands/cp.service.js';
-import mv from '../commands/mv.service.js';
+import cdService from '../commands/cd.service.js';
+import lsService from '../commands/ls.service.js';
+import catService from '../commands/cat.service.js';
+import addService from '../commands/add.service.js';
+import rnService from '../commands/rn.service.js';
+import cpService from '../commands/cp.service.js';
+import mvService from '../commands/mv.service.js';
+import rmService from '../commands/rm.service.js';
 
 let currentDir = getHomeDir();
 
 const commands = {
-  'up': () => currentDir = cd(currentDir, '..'),
-  'cd': (file) => currentDir = cd(currentDir, file),
-  'ls': () => ls(currentDir).catch(err => console.error(err.message)),
-  'cat': (file) => cat(currentDir, file).catch(err => console.error(err.message)),
-  'add': (file) => add(currentDir, file).catch(err => console.error(err.message)),
-  'rn': (filePath, file) => currentDir = rn(currentDir, filePath, file).catch(err => console.error(err.message)),
-  'cp': (filePath, file) => cp(currentDir, filePath, file).catch(err => console.error(err.message)),
-  'mv': (filePath, file) => mv(currentDir, filePath, file).catch(err => console.error(err.message)),
+  'up': () => currentDir = cdService(currentDir, '..'),
+  'cd': (file) => currentDir = cdService(currentDir, file),
+  'ls': () => lsService(currentDir).catch(err => console.error(err.message)),
+  'cat': (file) => catService(currentDir, file).catch(err => console.error(err.message)),
+  'add': (file) => addService(currentDir, file).catch(err => console.error(err.message)),
+  'rn': (filePath, file) => currentDir = rnService(currentDir, filePath, file).catch(err => console.error(err.message)),
+  'cp': (filePath, file) => cpService(currentDir, filePath, file).catch(err => console.error(err.message)),
+  'mv': (filePath, file) => mvService(currentDir, filePath, file).catch(err => console.error(err.message)),
+  'rm': (filePath, file) => rmService(currentDir, filePath, file).catch(err => console.error(err.message)),
 }
 
 export default commands
