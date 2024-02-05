@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-file-manager",
+  "version": "1.0.0",
+  "description": "RSSchool node.js Task#2 for creating simple file manager",
+  "main": "index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solidados/node-nodejs-file-manager.git"
+  },
+  "keywords": [
+    "File",
+    "Manager",
+    "CLI",
+    "CMD"
+  ],
+  "author": "solidados",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/solidados/node-nodejs-file-manager/issues"
+  },
+  "homepage": "https://github.com/solidados/node-nodejs-file-manager#readme"
+}
