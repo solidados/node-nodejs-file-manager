@@ -2,7 +2,7 @@ import rl from "./readLine.js";
 import commands from "../interface/commands.js";
 import notifiers from "../helpers/notifiers.js";
 import constants from "../constants/constants.js";
-import { colors } from "../helpers/messageColors.js";
+// import { colors } from "../helpers/messageColors.js";
 
 const readlineListener = () => {
   const originalPrompt = rl.getPrompt();

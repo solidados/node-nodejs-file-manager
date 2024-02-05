@@ -4,6 +4,6 @@ export const colors = {
   green: "\x1b[32m",
   yellow: "\x1b[33m",
   blue: "\x1b[34m",
-  some: "\x1b[35m"
+  purple: "\x1b[35m"
 }
 
