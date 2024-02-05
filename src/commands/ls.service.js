@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from 'node:path';
 import notifiers from "../helpers/notifiers.js";
 
-export const ls = async (dir) => {
+const ls = async (dir) => {
   try {
     const files = await fs.readdir(dir);
     const statsPromises = files.map(file => fs.stat(path.join(dir, file)).catch(() => null));
@@ -14,7 +14,7 @@ export const ls = async (dir) => {
         : stats[index]
           ? 'file'
           : 'unknown';
-      
+
       return { name: file, type: type };
     });
 
@@ -32,3 +32,5 @@ export const ls = async (dir) => {
     notifiers.failed();
   }
 }
+
+export default ls;
