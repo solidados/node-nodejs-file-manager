@@ -6,6 +6,7 @@ import cat from '../commands/cat.service.js';
 import add from '../commands/add.service.js';
 import rn from '../commands/rn.service.js';
 import cp from '../commands/cp.service.js';
+import mv from '../commands/mv.service.js';
 
 let currentDir = getHomeDir();
 
@@ -17,6 +18,7 @@ const commands = {
   'add': (file) => add(currentDir, file).catch(err => console.error(err.message)),
   'rn': (filePath, file) => currentDir = rn(currentDir, filePath, file).catch(err => console.error(err.message)),
   'cp': (filePath, file) => cp(currentDir, filePath, file).catch(err => console.error(err.message)),
+  'mv': (filePath, file) => mv(currentDir, filePath, file).catch(err => console.error(err.message)),
 }
 
 export default commands
