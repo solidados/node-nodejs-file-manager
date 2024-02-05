@@ -11,6 +11,7 @@ import rmService from '../commands/rm.service.js';
 import getSysInfo from '../commands/os.service.js';
 import hashService from '../commands/hash.service.js';
 import compressService from "../commands/compress.service.js";
+import decompressService from "../commands/decompress.service.js";
 
 let currentDir = getHomeDir();
 
@@ -27,6 +28,7 @@ const commands = {
   'os': (file) => getSysInfo(currentDir, file).catch(err => console.error(err.message)),
   'hash': (file) => hashService(currentDir, file).catch(err => console.error(err.message)),
   'compress': (filePath, fileDestination) => compressService(currentDir, filePath, fileDestination).catch(err => console.error(err.message)),
+  'decompress': (filePath, fileDestination) => decompressService(currentDir, filePath, fileDestination).catch(err => console.error(err.message)),
 }
 
 export default commands
