@@ -1,9 +1,9 @@
-import { promises as fs } from 'node:fs';
-import { EOL } from "node:os";
+import fs from 'node:fs/promises';
+import { EOL } from 'node:os';
 
 import absPath from '../helpers/absPath.js';
-import notifiers from "../helpers/notifiers.js";
-import { colors } from "../helpers/messageColors.js";
+import notifiers from '../helpers/notifiers.js';
+import { colors } from '../helpers/messageColors.js';
 
 const cat = async (dir, file) => {
   if (!file) {
