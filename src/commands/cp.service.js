@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 import absPath from '../helpers/absPath.js';
-import notifiers from "../helpers/notifiers.js";
+import notifiers from '../helpers/notifiers.js';
 
 const cp = async (dir, filePath, file) => {
   try {
@@ -17,7 +17,7 @@ const cp = async (dir, filePath, file) => {
     const filePathExists = await fs.access(absPath(dir, filePath))
                                    .then(() => true)
                                    .catch(() => false);
-    
+
     const fileExists = await fs.access(absPath(dir, file))
                                .then(() => true)
                                .catch(() => false);

@@ -2,7 +2,7 @@ import { homedir as getHomeDir } from 'node:os';
 import { existsSync } from 'node:fs';
 
 import absPath from '../helpers/absPath.js';
-import notifiers from "../helpers/notifiers.js";
+import notifiers from '../helpers/notifiers.js';
 
 let currentDir = getHomeDir();
 

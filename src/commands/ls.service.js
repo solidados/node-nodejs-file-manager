@@ -1,6 +1,6 @@
-import fs from "node:fs/promises";
+import fs from 'node:fs/promises';
 import path from 'node:path';
-import notifiers from "../helpers/notifiers.js";
+import notifiers from '../helpers/notifiers.js';
 
 const ls = async (dir) => {
   try {
