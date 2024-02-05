@@ -8,6 +8,7 @@ import rnService from '../commands/rn.service.js';
 import cpService from '../commands/cp.service.js';
 import mvService from '../commands/mv.service.js';
 import rmService from '../commands/rm.service.js';
+import getSysInfo from "../commands/os.service.js";
 
 let currentDir = getHomeDir();
 
@@ -21,6 +22,7 @@ const commands = {
   'cp': (filePath, file) => cpService(currentDir, filePath, file).catch(err => console.error(err.message)),
   'mv': (filePath, file) => mvService(currentDir, filePath, file).catch(err => console.error(err.message)),
   'rm': (filePath, file) => rmService(currentDir, filePath, file).catch(err => console.error(err.message)),
+  'os': (file) => getSysInfo(currentDir, file).catch(err => console.error(err.message)),
 }
 
 export default commands

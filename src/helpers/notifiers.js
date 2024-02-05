@@ -12,6 +12,7 @@ const notifiers = {
   invalid: () => console.log(`${colors.red}Invalid command${colors.reset}${EOL}`),
   invalidInput: () => console.log(`${colors.red}Invalid input${colors.reset}${EOL}`),
   location: (dir) => console.log(`${colors.blue}You are currently in${colors.reset} ${dir}${EOL}`),
+  userOutput: (option) => console.log(`${colors.gray}${option}${colors.reset}`)
 }
 
 export default notifiers
