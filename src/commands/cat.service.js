@@ -29,9 +29,9 @@ const cat = async (dir, file) => {
     console.log(framedData);
     notifiers.location(dir);
   }
-  catch (error) {
-    notifiers.failed();
+  catch (err) {
+    notifiers.failed(err.message);
   }
 }
 
-export default await cat;
+export default cat;

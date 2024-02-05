@@ -17,7 +17,7 @@ const add = async (dir, file) => {
     }
 
     await fs.writeFile(absPath(dir, file), '');
-    notifiers.createdFile(file)
+    notifiers.fileCreated(file)
   }
   catch (err) {
     notifiers.failed(err.message)
@@ -26,4 +26,4 @@ const add = async (dir, file) => {
   notifiers.location(dir);
 };
 
-export default await add;
+export default add;
