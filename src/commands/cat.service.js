@@ -1,43 +1,37 @@
-import fs from 'node:fs';
+import { promises as fs } from 'node:fs';
 import { EOL } from "node:os";
 
 import absPath from '../helpers/absPath.js';
 import notifiers from "../helpers/notifiers.js";
+import { colors } from "../helpers/messageColors.js";
 
-const cat = (dir, file) => {
+const cat = async (dir, file) => {
   if (!file) {
     notifiers.invalidInput();
-  } else {
-    let filePath = '';
+    return;
+  }
 
-    if (!fs.existsSync(absPath(dir, file))) {
-      notifiers.failed();
-    } else {
-      filePath = absPath(dir, file);
+  const filePath = absPath(dir, file);
 
-      const readStream = fs.createReadStream(filePath);
+  try {
+    const stats = await fs.stat(filePath);
 
-      fs.stat(filePath, (err, stats) => {
-        if (err) {
-          notifiers.failed();
-          return;
-        }
-        if (stats.isFile()) {
-          readStream.on('data', (data) => {
-            process.stdout.write(`${data} ${EOL}`);
-            notifiers.location(dir);
-          });
-          readStream.on('error', (err) => {
-            if (err) {
-              notifiers.failed();
-            }
-          });
-        } else {
-          notifiers.changeFile();
-        }
-      })
+    if (!stats.isFile()) {
+      notifiers.changeFile();
+      return;
     }
+
+    const data = await fs.readFile(filePath, 'utf8');
+
+    // Create a frame for the output
+    const framedData = `${colors.cyan}┌${'─'.repeat(50)}┐\n${data.split(EOL).map(line => `│ ${line}`).join(EOL)}\n└${'─'.repeat(50)}┘${colors.reset}`;
+
+    console.log(framedData);
+    notifiers.location(dir);
+  }
+  catch (error) {
+    notifiers.failed();
   }
 }
 
-export default cat;
+export default await cat;
